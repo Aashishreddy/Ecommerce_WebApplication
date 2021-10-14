@@ -4,6 +4,7 @@ import com.example.Dto.CustomerDetails;
 import com.example.Dto.CustomerRespository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -14,8 +15,8 @@ public class CustomerController {
     @Autowired
     CustomerRespository custRepo;
 
-    @PostMapping("/addCustomer")
-    public ResponseEntity<String> addCustomer(@RequestBody CustomerDetails customerDetails) throws Exception{
+    @GetMapping("/addCustomer")
+    public String addCustomer() throws Exception{
         CustomerDetails cust = new CustomerDetails();
         cust.setFirstName("Aashish Reddy");
         cust.setLastName("Vundhyala");
@@ -26,7 +27,7 @@ public class CustomerController {
         cust.setMobileNumber("(682)-241-2012");
 
         custRepo.save(cust);
-        return ResponseEntity.ok("Saved");
+        return "Saved";
     }
 
 }

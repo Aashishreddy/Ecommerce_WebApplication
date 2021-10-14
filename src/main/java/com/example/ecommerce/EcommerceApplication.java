@@ -9,6 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 public class EcommerceApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(EcommerceApplication.class, args);
     }
 
